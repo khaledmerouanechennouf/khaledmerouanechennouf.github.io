@@ -138,20 +138,14 @@ header h1 {
 /* Project images */
 
 .project-image {
-
     width: 100%;
-
-    max-width: 260px;
-
-    height: 180px;
-
+    max-width: 400px;
+    height: 280px;
     object-fit: cover;
-
     border-radius: 8px;
-
     margin-bottom: 15px;
-
 }
+
 
 
 
