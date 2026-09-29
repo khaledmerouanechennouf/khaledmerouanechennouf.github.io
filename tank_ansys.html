@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Pressurized Tank with Suspended Load: FEM Analysis in ANSYS
+    </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>
+            Pressurized Tank with Suspended Load: FEM Analysis in ANSYS
+        </h1>
+    </div>
+</header>
+<main>
+<div class="container detail">
+<div class="project-description">
+<img
+src="images/tank_ansys.png"
+alt="ANSYS FEM simulation of a pressurized tank under load"
+class="project-image">
+<h2>
+Project Description
+</h2>
+<p>
+This project focuses on the finite element analysis of a tank
+subjected to an internal pressure of 1 MPa and to the weight of
+a pump-motor unit (200 kg) mounted on its top nozzle, through
+which the fluid enters. The objective is to determine the stress
+and deformation fields, locate the critical zones, and verify
+that the structure remains safe with respect to the yield
+strength of the material.
+The work is organized into three parts, each illustrated with a
+dedicated video.
+</p>
+
+<h3>
+Technical Tools:
+</h3>
+<div class="features">
+<div>
+SolidWorks - 3D geometry design
+</div>
+<div>
+ANSYS Mechanical - Static structural analysis
+</div>
+<div>
+Finite element method
+</div>
+<div>
+Mesh convergence and analytical validation
+</div>
+</div>
+
+<!-- ===================== PART 1 ===================== -->
+<h2>
+Part 1 — Geometry Design in SolidWorks
+</h2>
+<p>
+The tank was designed in SolidWorks, including the cylindrical
+shell, the end caps, the support base and the top nozzle through
+which the fluid enters. The geometry was built with the
+simulation in mind, keeping the features that influence the
+stress distribution (nozzle junction, supports) and avoiding
+unnecessary details that would complicate the mesh.
+</p>
+<iframe
+    src="https://www.youtube.com/embed/VIDEO_ID_1"
+    frameborder="0"
+    allowfullscreen>
+</iframe>
+
+<!-- ===================== PART 2 ===================== -->
+<h2>
+Part 2 — Import into ANSYS and Material Definition
+</h2>
+<p>
+The SolidWorks model was imported into ANSYS Mechanical for a
+static structural analysis. The default Structural Steel material
+was assigned to the tank: Young's modulus of 200 GPa, Poisson's
+ratio of 0.3, density of 7850 kg/m³ and yield strength of
+250 MPa. The linear elastic behavior of this material is
+sufficient here, since the objective is to verify that stresses
+remain below the yield limit.
+</p>
+<iframe
+    src="https://www.youtube.com/embed/VIDEO_ID_2"
+    frameborder="0"
+    allowfullscreen>
+</iframe>
+
+<!-- ===================== PART 3 ===================== -->
+<h2>
+Part 3 — Meshing, Boundary Conditions, Solution and Validation
+</h2>
+<p>
+The model was meshed with a local refinement around the nozzle
+junction, where stress concentrations are expected. The tank is
+held by a fixed support at its base. An internal pressure of
+1 MPa is applied on all the internal faces, and the weight of the
+pump-motor unit (about 1962 N for 200 kg) is applied on the
+nozzle flange, together with the standard earth gravity acting on
+the structure. After solving, the von Mises stress and the total
+deformation were analyzed, and the safety factor was computed
+with respect to the yield strength. The results were validated by
+comparing the stress in the cylindrical shell, far from the
+nozzle, with the analytical thin-wall formula
+σ = pR/t, and by checking the stability of the results with
+successive mesh refinements.
+</p>
+<iframe
+    src="https://www.youtube.com/embed/VIDEO_ID_3"
+    frameborder="0"
+    allowfullscreen>
+</iframe>
+
+</div>
+</div>
+</main>
+<footer>
+<div class="container">
+<p>
+Created by Khaled Merouane Chennouf
+</p>
+</div>
+</footer>
+</body>
+</html>
