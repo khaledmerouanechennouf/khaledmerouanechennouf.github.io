@@ -1,264 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Finite element analysis of a pressurized steel tank (1 MPa) carrying a 200 kg pump-motor assembly, performed in ANSYS Mechanical from a SolidWorks model.">
 
-    <title>Pressurized Tank with Suspended Load: FEM Analysis in ANSYS</title>
+    <meta
+        name="description"
+        content="Finite element analysis of a pressurized steel tank subjected to 1 MPa internal pressure and a 200 kg pump-motor assembly, performed in ANSYS Mechanical from a SolidWorks model."
+    >
+
+    <title>
+        Pressurized Tank with Suspended Load: FEM Analysis in ANSYS
+    </title>
 
     <link rel="stylesheet" href="styles.css">
 </head>
+
 
 <body>
 
 <header>
     <div class="container">
-        <p class="back-link"><a href="index.html">← Back to projects</a></p>
-        <h1>Pressurized Tank with Suspended Load: FEM Analysis in ANSYS</h1>
-        <p class="subtitle">SolidWorks · ANSYS Mechanical · Static structural analysis</p>
+
+        <p class="back-link">
+            <a href="index.html">← Back to projects</a>
+        </p>
+
+        <h1>
+            Pressurized Tank with Suspended Load: FEM Analysis in ANSYS
+        </h1>
+
+        <p class="subtitle">
+            SolidWorks · ANSYS Mechanical · Static structural analysis
+        </p>
+
     </div>
 </header>
 
+
 <main>
+
 <article class="container detail">
 
+
     <!-- ===================== OVERVIEW ===================== -->
+
     <section class="project-description" id="overview">
 
         <img
             src="images/tank_ansys.jpg"
             alt="ANSYS FEM simulation of a pressurized tank under load"
             class="project-image"
-            loading="lazy">
+            loading="lazy"
+        >
 
-        <h2>Project Description</h2>
+        <h2>
+            Project Description
+        </h2>
 
         <p>
-            This project is a finite element analysis of a steel pressurized tank
-            subjected to an internal pressure of 1&nbsp;MPa and to the weight of a
-            200&nbsp;kg pump-motor assembly mounted on the top nozzle.
+            This project presents a finite element analysis of a steel
+            pressurized tank subjected to an internal pressure of
+            1&nbsp;MPa and to the weight of a 200&nbsp;kg pump-motor
+            assembly mounted on the top nozzle.
         </p>
 
         <p>
-            The objective is to evaluate the structural response of the tank,
-            in particular its deformation and von Mises stress, and to study how
-            the numerical results behave in the region where the highest stresses
-            are expected.
+            The objective is to evaluate the structural response of the
+            tank, particularly the total deformation and von Mises stress,
+            and to investigate the behavior of the numerical solution in
+            the region where higher stress levels are expected.
         </p>
 
         <p>
-            The work is carried out in four steps, from the geometry design in
-            SolidWorks to the analysis of the results and the adaptive mesh
-            refinement.
+            The analysis is organized into four steps, from the initial
+            geometry design in SolidWorks to the evaluation of the results
+            and adaptive mesh refinement in ANSYS Mechanical.
         </p>
 
-        <h3>Study at a Glance</h3>
+
+        <h3>
+            Study at a Glance
+        </h3>
 
         <ul class="features">
-            <li><strong>Software:</strong> SolidWorks, ANSYS Mechanical</li>
-            <li><strong>Analysis type:</strong> Static structural</li>
-            <li><strong>Internal pressure:</strong> 1 MPa</li>
-            <li><strong>Suspended load:</strong> 200 kg point mass on the top nozzle</li>
-            <li><strong>Material:</strong> Structural steel</li>
+
+            <li>
+                <strong>Software:</strong>
+                SolidWorks, ANSYS Mechanical
+            </li>
+
+            <li>
+                <strong>Analysis type:</strong>
+                Static structural
+            </li>
+
+            <li>
+                <strong>Internal pressure:</strong>
+                1 MPa
+            </li>
+
+            <li>
+                <strong>Suspended load:</strong>
+                200 kg point mass on the top nozzle
+            </li>
+
+            <li>
+                <strong>Material:</strong>
+                Structural steel
+            </li>
+
         </ul>
+
     </section>
 
 
+
     <!-- ===================== PART 1 ===================== -->
+
     <section id="part-1">
-        <h2>Part 1 — Geometry Design in SolidWorks</h2>
+
+        <h2>
+            Part 1 — Geometry Design in SolidWorks
+        </h2>
 
         <p>
-            The tank geometry was created in SolidWorks. The model includes the
-            main cylindrical vessel, its supports, the end caps and the top nozzle
-            used to connect the pump-motor assembly.
+            The tank geometry was created in SolidWorks. The model
+            includes the main cylindrical vessel, its supports,
+            the end caps and the top nozzle used to connect the
+            pump-motor assembly.
         </p>
 
         <p>
-            The geometry was prepared with the finite element analysis in mind,
-            while keeping the structural features that may influence the stress
-            distribution.
+            The geometry was prepared with the finite element analysis
+            in mind while retaining the structural features that may
+            influence the stress distribution.
         </p>
+
 
         <figure class="video">
+
             <iframe
                 src="https://www.youtube.com/embed/UaqPV-z9T-0"
                 title="Part 1 — Geometry design in SolidWorks"
                 loading="lazy"
                 allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            <figcaption>Video 1 — Geometry design in SolidWorks</figcaption>
+                allowfullscreen>
+            </iframe>
+
+            <figcaption>
+                Video 1 — Geometry design in SolidWorks
+            </figcaption>
+
         </figure>
+
     </section>
 
 
+
     <!-- ===================== PART 2 ===================== -->
+
     <section id="part-2">
-        <h2>Part 2 — Geometry Preparation in ANSYS</h2>
+
+        <h2>
+            Part 2 — Geometry Preparation in ANSYS
+        </h2>
 
         <p>
-            The SolidWorks geometry was imported into ANSYS and divided into
-            two regions.
+            The SolidWorks geometry was imported into ANSYS and divided
+            into two regions.
         </p>
 
         <p>
-            This split allows a more controlled treatment of the area where the
-            highest stresses are expected, since a localized mesh refinement can
-            be applied there if needed. It also avoids refining the entire tank
-            when a local refinement is sufficient.
+            This separation was introduced because higher stress levels
+            were expected in a particular region of the structure. Dividing
+            the geometry allows this area to be treated more locally if
+            additional mesh refinement is required.
         </p>
+
+        <p>
+            This approach also makes it possible to refine the region of
+            interest without unnecessarily refining the entire tank.
+        </p>
+
 
         <figure class="video">
+
             <iframe
                 src="https://www.youtube.com/embed/qOVpxh2dr0c"
                 title="Part 2 — Geometry preparation in ANSYS"
                 loading="lazy"
                 allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            <figcaption>Video 2 — Geometry preparation in ANSYS</figcaption>
+                allowfullscreen>
+            </iframe>
+
+            <figcaption>
+                Video 2 — Geometry preparation in ANSYS
+            </figcaption>
+
         </figure>
+
     </section>
 
 
+
     <!-- ===================== PART 3 ===================== -->
+
     <section id="part-3">
-        <h2>Part 3 — Material, Boundary Conditions and Loading</h2>
+
+        <h2>
+            Part 3 — Material, Boundary Conditions and Loading
+        </h2>
 
         <p>
-            The model was set up in ANSYS Mechanical for a static structural
-            analysis, with steel as the material.
+            The model was set up in ANSYS Mechanical for a static
+            structural analysis using structural steel as the material.
         </p>
 
-        <h3>Material Properties</h3>
+
+        <h3>
+            Material Properties
+        </h3>
+
 
         <table class="results-table">
-            <caption>Structural steel properties</caption>
+
+            <caption>
+                Structural steel properties used in the analysis
+            </caption>
+
             <thead>
-                <tr><th scope="col">Property</th><th scope="col">Value</th></tr>
+
+                <tr>
+                    <th scope="col">Property</th>
+                    <th scope="col">Value</th>
+                </tr>
+
             </thead>
+
             <tbody>
-                <tr><th scope="row">Tensile yield strength</th><td>250 MPa</td></tr>
-                <tr><th scope="row">Tensile ultimate strength</th><td>460 MPa</td></tr>
+
+                <tr>
+                    <th scope="row">
+                        Tensile yield strength
+                    </th>
+
+                    <td>
+                        250 MPa
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">
+                        Tensile ultimate strength
+                    </th>
+
+                    <td>
+                        460 MPa
+                    </td>
+                </tr>
+
             </tbody>
+
         </table>
 
-        <h3>Boundary Conditions and Loads</h3>
+
+
+        <h3>
+            Boundary Conditions and Loads
+        </h3>
 
         <p>
-            The tank was constrained at its supports. The loads were introduced
-            through load steps so that the different actions on the structure
-            are applied progressively:
+            The tank was constrained at its supports. The different
+            loads were introduced using load steps to progressively
+            apply the actions acting on the structure.
         </p>
 
         <ul>
-            <li><strong>Gravity</strong> accounts for the weight of the structure.</li>
+
             <li>
-                <strong>Internal pressure</strong> of 1&nbsp;MPa is applied to the
-                internal surfaces of the tank. A cross-section view was used to
-                select these surfaces easily.
+                <strong>Gravity:</strong>
+                accounts for the weight of the tank itself.
             </li>
+
             <li>
-                <strong>Pump-motor assembly:</strong> a 200&nbsp;kg point mass
-                located at the top nozzle. This includes the effect of the
-                suspended equipment without modelling the whole assembly.
+                <strong>Internal pressure:</strong>
+                a pressure of 1&nbsp;MPa is applied to the internal
+                surfaces of the tank. A cross-section view was used
+                to facilitate the selection of these surfaces.
             </li>
+
+            <li>
+                <strong>Pump-motor assembly:</strong>
+                represented by a 200&nbsp;kg point mass located at
+                the top nozzle. This accounts for the suspended
+                equipment without explicitly modelling the complete
+                pump-motor assembly.
+            </li>
+
         </ul>
 
+
         <figure class="video">
+
             <!-- Replace VIDEO_ID_3 with the YouTube video ID -->
+
             <iframe
                 src="https://www.youtube.com/embed/VIDEO_ID_3"
                 title="Part 3 — Material, boundary conditions and loading"
                 loading="lazy"
                 allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            <figcaption>Video 3 — Material, boundary conditions and loading</figcaption>
+                allowfullscreen>
+            </iframe>
+
+            <figcaption>
+                Video 3 — Material, boundary conditions and loading
+            </figcaption>
+
         </figure>
+
     </section>
+
 
 
     <!-- ===================== PART 4 ===================== -->
+
     <section id="part-4">
-        <h2>Part 4 — Results and Adaptive Mesh Refinement</h2>
+
+        <h2>
+            Part 4 — Results and Adaptive Mesh Refinement
+        </h2>
 
         <p>
-            After solving the model, the main results were examined through the
-            total deformation and von Mises stress distributions.
+            After solving the model, the main structural results were
+            examined through the total deformation and von Mises stress
+            distributions.
         </p>
 
-        <h3>Initial Results</h3>
+
+        <h3>
+            Initial Results
+        </h3>
+
 
         <table class="results-table">
-            <caption>Initial solution (before mesh refinement)</caption>
+
+            <caption>
+                Initial solution before mesh refinement
+            </caption>
+
             <thead>
-                <tr><th scope="col">Quantity</th><th scope="col">Value</th></tr>
+
+                <tr>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Value</th>
+                </tr>
+
             </thead>
+
             <tbody>
-                <tr><th scope="row">Maximum von Mises stress</th><td>61.1 MPa</td></tr>
-                <tr><th scope="row">Maximum total deformation</th><td>0.05 mm</td></tr>
-                <tr><th scope="row">Tensile yield strength (steel)</th><td>250 MPa</td></tr>
-                <tr><th scope="row">Yield strength / max. von Mises stress</th><td>≈ 4.1</td></tr>
+
+                <tr>
+                    <th scope="row">
+                        Maximum von Mises stress
+                    </th>
+
+                    <td>
+                        61.1 MPa
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">
+                        Maximum total deformation
+                    </th>
+
+                    <td>
+                        0.05 mm
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">
+                        Tensile yield strength
+                    </th>
+
+                    <td>
+                        250 MPa
+                    </td>
+                </tr>
+
             </tbody>
+
         </table>
 
-        <p>
-            The maximum von Mises stress of 61.1&nbsp;MPa is well below the
-            250&nbsp;MPa tensile yield strength of the steel, which gives a margin
-            of about 4 on yielding in this initial solution.
-        </p>
-
-        <h3>Adaptive Mesh Refinement</h3>
 
         <p>
-            An adaptive mesh refinement study is then performed to check how the
-            mesh influences the numerical results, particularly in the region
-            where the highest stresses occur.
+            The initial solution gives a maximum von Mises stress of
+            61.1&nbsp;MPa. This value is below the tensile yield strength
+            of the steel, which is 250&nbsp;MPa.
         </p>
 
         <p>
-            The refined results are compared with the initial solution to assess
-            the convergence of the calculated stress and deformation.
+            The corresponding maximum total deformation is
+            approximately 0.05&nbsp;mm.
         </p>
 
-        <!-- Replace this block with an iframe (same format as above) when the video is ready -->
-        <figure class="video video-placeholder">
-            <p>Video 4 — Results and Adaptive Mesh Refinement</p>
-            <p>Coming soon</p>
-        </figure>
+
+        <h3>
+            Adaptive Mesh Refinement
+        </h3>
+
+        <p>
+            An adaptive mesh refinement study is performed to investigate
+            the influence of mesh refinement on the numerical results,
+            particularly in the region where the highest stress levels
+            are observed.
+        </p>
+
+        <p>
+            The refined results will be compared with the initial solution
+            to evaluate the stability of the calculated stress and
+            deformation and to determine whether further refinement
+            significantly changes the results.
+        </p>
+
+
+        <!-- ===================== VIDEO 4 PLACEHOLDER ===================== -->
+
+        <div class="video-placeholder">
+
+            <p>
+                Video 4 — Results and Adaptive Mesh Refinement
+            </p>
+
+            <p>
+                Coming soon
+            </p>
+
+        </div>
+
     </section>
+
 
 
     <!-- ===================== CONCLUSION ===================== -->
+
     <section id="conclusion">
-        <h2>Conclusion</h2>
+
+        <h2>
+            Conclusion
+        </h2>
 
         <p>
-            The initial simulation gives a first assessment of the structural
-            behavior of the pressurized tank under internal pressure, gravity
-            and the additional load of the 200&nbsp;kg pump-motor assembly.
+            The initial finite element analysis provides an assessment
+            of the structural behavior of the pressurized tank under
+            internal pressure, gravity and the additional load associated
+            with the 200&nbsp;kg pump-motor assembly.
         </p>
 
         <p>
-            The maximum von Mises stress is 61.1&nbsp;MPa and the maximum total
-            deformation is 0.05&nbsp;mm. The stress remains below the
-            250&nbsp;MPa yield strength of the material.
+            The initial solution gives a maximum von Mises stress of
+            61.1&nbsp;MPa and a maximum total deformation of
+            0.05&nbsp;mm. The maximum stress remains below the
+            250&nbsp;MPa tensile yield strength of the material.
         </p>
 
         <p>
-            The adaptive mesh refinement study is used to confirm the reliability
-            and convergence of these results.
+            The adaptive mesh refinement study will be used to further
+            assess the stability of these numerical results.
         </p>
+
     </section>
 
+
 </article>
+
 </main>
 
+
 <footer>
+
     <div class="container">
-        <p>Created by Khaled Merouane Chennouf</p>
+
+        <p>
+            Created by Khaled Merouane Chennouf
+        </p>
+
     </div>
+
 </footer>
 
+
 </body>
+
 </html>
+
