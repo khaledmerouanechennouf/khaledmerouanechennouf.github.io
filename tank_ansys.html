@@ -1,14 +1,19 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>
         Pressurized Tank with Suspended Load: FEM Analysis in ANSYS
     </title>
+
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
 <header>
     <div class="container">
         <h1>
@@ -16,117 +21,263 @@
         </h1>
     </div>
 </header>
+
 <main>
 <div class="container detail">
+
 <div class="project-description">
-<img
-src="images/tank_ansys.jpg"
-alt="ANSYS FEM simulation of a pressurized tank under load"
-class="project-image">
-<h2>
-Project Description
-</h2>
-<p>
-This project focuses on the finite element analysis of a tank
-subjected to an internal pressure of 1 MPa and to the weight of
-a pump-motor unit (200 kg) mounted on its top nozzle, through
-which the fluid enters. The objective is to determine the stress
-and deformation fields, locate the critical zones, and verify
-that the structure remains safe with respect to the yield
-strength of the material.
-The work is organized into three parts, each illustrated with a
-dedicated video.
-</p>
 
-<h3>
-Technical Tools:
-</h3>
-<div class="features">
-<div>
-SolidWorks - 3D geometry design
-</div>
-<div>
-ANSYS Mechanical - Static structural analysis
-</div>
-<div>
-Finite element method
-</div>
-<div>
-Mesh convergence and analytical validation
-</div>
-</div>
+    <img
+        src="images/tank_ansys.jpg"
+        alt="ANSYS FEM simulation of a pressurized tank under load"
+        class="project-image"
+    >
 
-<!-- ===================== PART 1 ===================== -->
-<h2>
-Part 1 — Geometry Design in SolidWorks
-</h2>
-<p>
-The tank was designed in SolidWorks, including the cylindrical
-shell, the end caps, the support base and the top nozzle through
-which the fluid enters. The geometry was built with the
-simulation in mind, keeping the features that influence the
-stress distribution (nozzle junction, supports) and avoiding
-unnecessary details that would complicate the mesh.
-</p>
-<iframe
-    src="https://www.youtube.com/embed/UaqPV-z9T-0"
-    frameborder="0"
-    allowfullscreen>
-</iframe>
+    <h2>
+        Project Description
+    </h2>
 
-<!-- ===================== PART 2 ===================== -->
-<h2>
-Part 2 — Import into ANSYS and Material Definition
-</h2>
-<p>
-The SolidWorks model was imported into ANSYS Mechanical for a
-static structural analysis. The default Structural Steel material
-was assigned to the tank: Young's modulus of 200 GPa, Poisson's
-ratio of 0.3, density of 7850 kg/m³ and yield strength of
-250 MPa. The linear elastic behavior of this material is
-sufficient here, since the objective is to verify that stresses
-remain below the yield limit.
-</p>
-<iframe
-    src="https://www.youtube.com/embed/qOVpxh2dr0c"
-    frameborder="0"
-    allowfullscreen>
-</iframe>
+    <p>
+        This project focuses on the finite element analysis of a
+        pressurized tank subjected to an internal pressure of
+        1 MPa and the weight of a 200 kg pump-motor assembly
+        mounted on the top nozzle.
+    </p>
 
-<!-- ===================== PART 3 ===================== -->
-<h2>
-Part 3 — Meshing, Boundary Conditions, Solution and Validation
-</h2>
-<p>
-The model was meshed with a local refinement around the nozzle
-junction, where stress concentrations are expected. The tank is
-held by a fixed support at its base. An internal pressure of
-1 MPa is applied on all the internal faces, and the weight of the
-pump-motor unit (about 1962 N for 200 kg) is applied on the
-nozzle flange, together with the standard earth gravity acting on
-the structure. After solving, the von Mises stress and the total
-deformation were analyzed, and the safety factor was computed
-with respect to the yield strength. The results were validated by
-comparing the stress in the cylindrical shell, far from the
-nozzle, with the analytical thin-wall formula
-σ = pR/t, and by checking the stability of the results with
-successive mesh refinements.
-</p>
-<iframe
-    src="https://www.youtube.com/embed/VIDEO_ID_3"
-    frameborder="0"
-    allowfullscreen>
-</iframe>
+    <p>
+        The objective is to evaluate the structural response of
+        the tank, particularly the deformation and von Mises stress,
+        and to investigate the behavior of the model around the
+        region where higher stress levels are expected.
+    </p>
+
+    <p>
+        The project is carried out in four main steps, from
+        geometry design in SolidWorks to the analysis of the
+        simulation results and adaptive mesh refinement.
+    </p>
+
+
+    <!-- ===================== PART 1 ===================== -->
+
+    <h2>
+        Part 1 — Geometry Design in SolidWorks
+    </h2>
+
+    <p>
+        The tank geometry was created in SolidWorks. The model
+        includes the main cylindrical vessel, its supports,
+        end caps and the top nozzle used for the connection of
+        the pump-motor assembly.
+    </p>
+
+    <p>
+        The geometry was prepared with the finite element analysis
+        in mind, while retaining the structural features that may
+        influence the stress distribution.
+    </p>
+
+    <iframe
+        src="VIDEO_ID_1"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+
+
+    <!-- ===================== PART 2 ===================== -->
+
+    <h2>
+        Part 2 — Geometry Preparation in ANSYS
+    </h2>
+
+    <p>
+        The SolidWorks geometry was imported into ANSYS and
+        divided into two regions.
+    </p>
+
+    <p>
+        This separation was introduced to allow more controlled
+        treatment of the area where higher stress levels were
+        expected. In particular, dividing the geometry makes it
+        possible to apply a more localized mesh treatment if
+        required during the analysis.
+    </p>
+
+    <p>
+        This approach also avoids unnecessarily refining the
+        entire tank when a local refinement is sufficient.
+    </p>
+
+    <iframe
+        src="VIDEO_ID_2"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+
+
+    <!-- ===================== PART 3 ===================== -->
+
+    <h2>
+        Part 3 — Material, Boundary Conditions and Loading
+    </h2>
+
+    <p>
+        The model was set up in ANSYS Mechanical for a structural
+        analysis using steel as the material.
+    </p>
+
+    <h3>
+        Material Properties
+    </h3>
+
+    <div class="features">
+
+        <div>
+            Material — Structural Steel
+        </div>
+
+        <div>
+            Tensile Yield Strength — 250 MPa
+        </div>
+
+        <div>
+            Tensile Ultimate Strength — 460 MPa
+        </div>
+
+    </div>
+
+    <p>
+        The tank was constrained using the appropriate boundary
+        conditions at its supports. The loading was introduced
+        using load steps in order to progressively apply the
+        different loads acting on the structure.
+    </p>
+
+    <p>
+        Gravity was applied to account for the weight of the
+        structure. An internal pressure of 1 MPa was applied to
+        the internal surfaces of the tank. A cross-section view
+        was used to facilitate the selection of the internal
+        surfaces.
+    </p>
+
+    <p>
+        The pump-motor assembly was represented by a 200 kg point
+        mass located at the top nozzle. This allows the effect of
+        the suspended equipment to be included in the structural
+        analysis without explicitly modelling the complete
+        assembly.
+    </p>
+
+    <iframe
+        src="VIDEO_ID_3"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+
+
+    <!-- ===================== PART 4 ===================== -->
+
+    <h2>
+        Part 4 — Results and Adaptive Mesh Refinement
+    </h2>
+
+    <p>
+        After solving the model, the main structural results were
+        examined through the total deformation and von Mises
+        stress distributions.
+    </p>
+
+    <h3>
+        Initial Results
+    </h3>
+
+    <div class="features">
+
+        <div>
+            Maximum von Mises Stress — 61.1 MPa
+        </div>
+
+        <div>
+            Maximum Total Deformation — 0.05 mm
+        </div>
+
+        <div>
+            Tensile Yield Strength — 250 MPa
+        </div>
+
+    </div>
+
+    <p>
+        The maximum von Mises stress obtained from the initial
+        analysis is 61.1 MPa, which is below the tensile yield
+        strength of the steel used in the model (250 MPa).
+    </p>
+
+    <p>
+        An adaptive mesh refinement study is then performed to
+        investigate the influence of mesh refinement on the
+        numerical results, particularly in the region where the
+        highest stresses are observed.
+    </p>
+
+    <p>
+        The refined results will be compared with the initial
+        solution to assess the stability of the calculated
+        stress and deformation.
+    </p>
+
+    <!-- VIDEO 4 PLACEHOLDER -->
+
+    <div class="video-placeholder">
+        <p>
+            Video 4 — Results and Adaptive Mesh Refinement
+        </p>
+
+        <p>
+            VIDEO PLACEHOLDER
+        </p>
+    </div>
+
+
+    <!-- ===================== CONCLUSION ===================== -->
+
+    <h2>
+        Conclusion
+    </h2>
+
+    <p>
+        The finite element analysis provides an initial assessment
+        of the structural behavior of the pressurized tank under
+        internal pressure, gravity and the additional load
+        associated with the 200 kg pump-motor assembly.
+    </p>
+
+    <p>
+        The initial simulation gives a maximum von Mises stress of
+        61.1 MPa and a maximum total deformation of 0.05 mm.
+        The maximum stress remains below the 250 MPa tensile yield
+        strength of the material.
+    </p>
+
+    <p>
+        The adaptive mesh refinement study is used to further
+        evaluate the reliability and stability of these numerical
+        results.
+    </p>
 
 </div>
 </div>
 </main>
+
 <footer>
-<div class="container">
-<p>
-Created by Khaled Merouane Chennouf
-</p>
-</div>
+    <div class="container">
+        <p>
+            Created by Khaled Merouane Chennouf
+        </p>
+    </div>
 </footer>
+
 </body>
 </html>
+```
