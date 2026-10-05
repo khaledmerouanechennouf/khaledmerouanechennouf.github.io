@@ -1,11 +1,19 @@
-/* Reset default browser settings */
+```css
+/* =========================================================
+   RESET DEFAULT BROWSER SETTINGS
+   ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* General page style */
+
+/* =========================================================
+   GENERAL PAGE STYLE
+   ========================================================= */
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
@@ -13,14 +21,22 @@ body {
     background-color: #f7f7f7;
 }
 
-/* Main container */
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Header */
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
 header {
     background-color: #eeeeee;
     padding: 25px 0;
@@ -39,6 +55,11 @@ header h1 {
     margin-top: 6px;
 }
 
+
+/* =========================================================
+   BACK LINK
+   ========================================================= */
+
 .back-link {
     text-align: left;
     font-size: 0.9rem;
@@ -54,7 +75,11 @@ header h1 {
     text-decoration: underline;
 }
 
-/* Projects section */
+
+/* =========================================================
+   PROJECTS SECTION
+   ========================================================= */
+
 .projects {
     display: flex;
     flex-wrap: wrap;
@@ -63,7 +88,11 @@ header h1 {
     justify-content: center;
 }
 
-/* Project cards */
+
+/* =========================================================
+   PROJECT CARDS
+   ========================================================= */
+
 .project-box {
     background-color: white;
     width: 100%;
@@ -71,11 +100,10 @@ header h1 {
     padding: 20px;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
-/* Small animation when hovering */
 .project-box:hover {
     transform: translateY(-5px);
 }
@@ -91,7 +119,11 @@ header h1 {
     color: #555;
 }
 
-/* Project images */
+
+/* =========================================================
+   PROJECT IMAGES
+   ========================================================= */
+
 .project-image {
     width: 100%;
     max-width: 400px;
@@ -101,7 +133,11 @@ header h1 {
     margin-bottom: 15px;
 }
 
-/* Links */
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
 .project-link {
     text-decoration: none;
     color: #0066cc;
@@ -112,7 +148,11 @@ header h1 {
     text-decoration: underline;
 }
 
-/* Not-yet-finished project cards */
+
+/* =========================================================
+   NOT-YET-FINISHED PROJECT CARDS
+   ========================================================= */
+
 .project-box--soon {
     position: relative;
     opacity: 0.75;
@@ -142,7 +182,11 @@ header h1 {
     pointer-events: none;
 }
 
-/* Coming Soon section */
+
+/* =========================================================
+   COMING SOON SECTION
+   ========================================================= */
+
 .coming-soon {
     margin: 40px 0;
     text-align: center;
@@ -178,18 +222,27 @@ header h1 {
     color: #555;
 }
 
-/* Detailed project pages */
+
+/* =========================================================
+   DETAILED PROJECT PAGES
+   ========================================================= */
+
 .detail {
     background-color: white;
     margin: 40px auto;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .detail section {
     margin-bottom: 3rem;
 }
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
 
 .detail h2 {
     color: #444;
@@ -205,11 +258,21 @@ header h1 {
     margin: 25px 0 12px;
 }
 
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
 .detail p {
     color: #555;
     margin-bottom: 18px;
-    max-width: 75ch; /* comfortable line length */
+    max-width: 75ch;
 }
+
+
+/* =========================================================
+   LISTS
+   ========================================================= */
 
 .detail ul {
     padding-left: 1.5rem;
@@ -221,7 +284,11 @@ header h1 {
     margin-bottom: 8px;
 }
 
-/* Project image on detail pages */
+
+/* =========================================================
+   PROJECT IMAGE ON DETAIL PAGES
+   ========================================================= */
+
 .detail .project-image {
     display: block;
     margin: 0 auto 25px;
@@ -230,25 +297,36 @@ header h1 {
     max-height: 400px;
 }
 
-/* Technical features */
+
+/* =========================================================
+   TECHNICAL FEATURES
+   ========================================================= */
+
 .features {
-    list-style: none;
-    padding: 0 !important;
+    padding: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-bottom: 25px;
 }
 
-.features li {
+/*
+   The new HTML uses <div> elements inside .features,
+   not <li> elements.
+*/
+
+.features > div {
     background-color: #eeeeee;
     padding: 10px 14px;
     border-radius: 5px;
     color: #555;
-    margin-bottom: 0;
 }
 
-/* Results tables */
+
+/* =========================================================
+   RESULTS TABLES
+   ========================================================= */
+
 .results-table {
     width: 100%;
     max-width: 600px;
@@ -280,19 +358,27 @@ header h1 {
     font-weight: normal;
 }
 
-/* Embedded videos */
+
+/* =========================================================
+   EMBEDDED VIDEOS
+   ========================================================= */
+
 figure.video {
     margin: 25px auto;
     max-width: 850px;
 }
 
 figure.video iframe {
+    display: block;
     width: 100%;
     aspect-ratio: 16 / 9;
     height: auto;
     border: none;
     border-radius: 8px;
 }
+
+
+/* Video captions */
 
 figure.video figcaption {
     font-size: 0.85rem;
@@ -301,15 +387,29 @@ figure.video figcaption {
     text-align: center;
 }
 
+
+/* =========================================================
+   VIDEO PLACEHOLDER
+   ========================================================= */
+
 .video-placeholder {
+    width: 100%;
+    max-width: 850px;
     aspect-ratio: 16 / 9;
+
+    margin: 25px auto;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     background-color: #f2f2f2;
+
     border: 2px dashed #bbbbbb;
     border-radius: 8px;
+
+    color: #777;
 }
 
 .video-placeholder p {
@@ -317,7 +417,16 @@ figure.video figcaption {
     text-align: center;
 }
 
-/* Footer */
+.video-placeholder p:first-child {
+    font-weight: bold;
+    color: #555;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
 footer {
     background-color: #eeeeee;
     text-align: center;
@@ -331,8 +440,13 @@ footer p {
     font-size: 0.9rem;
 }
 
-/* Mobile version */
+
+/* =========================================================
+   MOBILE VERSION
+   ========================================================= */
+
 @media (max-width: 768px) {
+
     .projects {
         flex-direction: column;
         align-items: center;
@@ -348,10 +462,15 @@ footer p {
 
     .detail {
         padding: 20px 15px;
+        margin: 20px auto;
     }
 
     .detail h2 {
         font-size: 1.3rem;
+    }
+
+    .detail h3 {
+        font-size: 1.05rem;
     }
 
     .results-table th,
@@ -359,4 +478,14 @@ footer p {
         padding: 8px;
         font-size: 0.9rem;
     }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .detail .project-image {
+        max-width: 100%;
+        max-height: 300px;
+    }
 }
+```
