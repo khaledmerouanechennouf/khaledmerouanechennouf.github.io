@@ -1,14 +1,22 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Vibration Analysis of a Tibetan Bowl
-    </title>
-    <link rel="stylesheet" href="styles.css">
+
+```
+<title>
+    Vibration Analysis of a Tibetan Bowl
+</title>
+
+<link rel="stylesheet" href="styles.css">
+```
+
 </head>
+
 <body>
+
 <header>
     <div class="container">
         <h1>
@@ -16,121 +24,175 @@
         </h1>
     </div>
 </header>
+
 <main>
+
 <div class="container detail">
+
 <div class="project-description">
+
 <img 
-src="images/tibetan_bowl.png"
-alt="Tibetan Bowl Vibration Experiment"
-class="project-image">
+ src="images/tibetan_bowl.png"
+ alt="Tibetan Bowl Vibration Experiment"
+ class="project-image">
+
 <h2>
-Project Description
+    Project Description
 </h2>
+
 <p>
-This project focuses on the experimental and numerical analysis
-of the vibration modes of a Tibetan bowl.
-The objective is to identify the natural frequencies and vibration
-patterns of the structure, and to validate the numerically predicted
-mode shapes through dedicated experiments.
-The work is organized into three parts, each illustrated with a
-dedicated video.
+    This project focuses on the experimental and numerical analysis
+    of the vibration modes of a Tibetan bowl.
+    The objective is to identify the natural frequencies and vibration
+    patterns of the structure, and to validate the numerically predicted
+    mode shapes through dedicated experiments.
+    The work is organized into three parts, each illustrated with a
+    dedicated video.
 </p>
 
 <h3>
-Technical Tools:
+    Technical Tools:
 </h3>
+
 <div class="features">
+
 <div>
-Python - FFT signal analysis
+    Python — FFT signal analysis
 </div>
+
 <div>
-COMSOL Multiphysique - Modal simulation
+    COMSOL Multiphysics — Modal simulation
 </div>
+
 <div>
-Mechanical vibrations
+    Mechanical vibrations
 </div>
+
 <div>
-Numerical modeling
+    Numerical modeling
 </div>
+
 </div>
 
 <!-- ===================== PART 1 ===================== -->
+
 <h2>
-Part 1 — COMSOL Modal Simulation
+    Part 1 — COMSOL Modal Simulation
 </h2>
+
 <p>
-The bowl was modeled numerically in COMSOL Multiphysique using a
-modal finite element analysis to predict its natural frequencies
-and the associated mode shapes. This simulation provides the
-theoretical reference used to validate the experimental results
-obtained in the following two parts.
+    The bowl was modeled numerically in COMSOL Multiphysics using a
+    modal finite element analysis to predict its natural frequencies
+    and the associated mode shapes. This simulation provides the
+    theoretical reference used to validate the experimental results
+    obtained in the following two parts.
 </p>
 
-        <figure class="video">
+<figure class="video">
 
-            <iframe
-                src="https://www.youtube.com/embed/CKXA7Sy-Bus"
-                title="Part 1 — COMSOL Modal Simulation"
-                loading="lazy"
-                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
+```
+<iframe
+    src="https://www.youtube.com/embed/CKXA7Sy-Bus"
+    title="Part 1 — COMSOL Modal Simulation"
+    loading="lazy"
+    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+</iframe>
 
-            <figcaption>
-                Part 1 — COMSOL Modal Simulation
-            </figcaption>
+<figcaption>
+    Part 1 — COMSOL Modal Simulation
+</figcaption>
+```
 
-        </figure>
+</figure>
+
 <!-- ===================== PART 2 ===================== -->
+
 <h2>
-Part 2 — Signal Processing (FFT)
+    Part 2 — Signal Processing (FFT)
 </h2>
+
 <p>
-Acoustic recordings of the excited bowl were processed in Python
-to extract its natural frequencies. A Fast Fourier Transform (FFT)
-was applied to the recorded signals, allowing the experimental
-frequencies to be identified and directly compared with the
-values predicted by the COMSOL simulation.
+    Acoustic recordings of the excited bowl were processed in Python
+    to extract its natural frequencies. A Fast Fourier Transform (FFT)
+    was applied to the recorded signals, allowing the experimental
+    frequencies to be identified and directly compared with the
+    values predicted by the COMSOL simulation.
 </p>
+
+<figure class="video">
+
+```
 <iframe
     src="https://www.youtube.com/embed/wIWGKbA3Zt8"
-    frameborder="0"
+    title="Part 2 — Signal Processing (FFT)"
+    loading="lazy"
+    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen>
 </iframe>
+
+<figcaption>
+    Part 2 — Signal Processing (FFT)
+</figcaption>
+```
+
+</figure>
 
 <!-- ===================== PART 3 ===================== -->
+
 <h2>
-Part 3 — Experimental Validation of Mode Shapes
+    Part 3 — Experimental Validation of Mode Shapes
 </h2>
+
 <p>
-The objective of this experiment is to validate the deformation
-shapes of the bowl's vibration modes, as predicted by the
-simulation, and more specifically to identify the distribution
-of nodes and antinodes along the bowl's wall. To do so, a liquid
-is placed inside the bowl: under the effect of vibration, it
-forms characteristic patterns on its free surface, revealing the
-deformation of the wall. The bowl is subjected to a sinusoidal
-acoustic excitation, generated by a signal generator — allowing
-a precise excitation frequency to be set — and amplified through
-a nearby loudspeaker. The frequency is tuned to reach resonance
-conditions, i.e. the natural frequency of one of the bowl's
-vibration modes.
+    The objective of this experiment is to validate the deformation
+    shapes of the bowl's vibration modes, as predicted by the
+    simulation, and more specifically to identify the distribution
+    of nodes and antinodes along the bowl's wall. To do so, a liquid
+    is placed inside the bowl: under the effect of vibration, it
+    forms characteristic patterns on its free surface, revealing the
+    deformation of the wall. The bowl is subjected to a sinusoidal
+    acoustic excitation, generated by a signal generator — allowing
+    a precise excitation frequency to be set — and amplified through
+    a nearby loudspeaker. The frequency is tuned to reach resonance
+    conditions, i.e. the natural frequency of one of the bowl's
+    vibration modes.
 </p>
+
+<figure class="video">
+
+```
 <iframe
     src="https://www.youtube.com/embed/CAoY0OrDjLc"
-    frameborder="0"
+    title="Part 3 — Experimental Validation of Mode Shapes"
+    loading="lazy"
+    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen>
 </iframe>
 
+<figcaption>
+    Part 3 — Experimental Validation of Mode Shapes
+</figcaption>
+```
+
+</figure>
+
 </div>
 </div>
+
 </main>
+
 <footer>
+
 <div class="container">
+
 <p>
-Created by Khaled Merouane Chennouf
+    Created by Khaled Merouane Chennouf
 </p>
+
 </div>
+
 </footer>
+
 </body>
 </html>
