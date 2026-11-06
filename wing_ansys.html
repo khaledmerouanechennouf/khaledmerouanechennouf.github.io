@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Structural Analysis of an Aircraft Wing in ANSYS | Khaled Merouane Chennouf </title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="container">
+
+        <h1>
+            Structural Analysis of an Aircraft Wing in ANSYS
+        </h1>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+<div class="container">
+
+
+<!-- 1. Introduction -->
+
+<section>
+
+    <h2>1. Introduction and Objective</h2>
+
+    <p>
+        The aim of this tutorial is to explain the main steps to follow
+        to conduct a structural analysis in ANSYS. The study case is an
+        aircraft wing made of a skin, ribs and spars. The wing is clamped
+        at the spar end points and loaded with a 160 N force applied on
+        the rightmost rib, in the direction of gravity.
+    </p>
+
+    <img
+    src="images/wing_ansys_overview.jpg"
+    alt="Overview of the wing structural analysis"
+    class="project-image">
+
+</section>
+
+
+<!-- 2. Geometry -->
+
+<section>
+
+    <h2>2. Geometry Assembly in SolidWorks</h2>
+
+    <p>
+        The wing was modeled and assembled in SolidWorks. The assembly
+        contains the wing skin, the ribs and the spars.
+    </p>
+
+    <img
+    src="images/wing_solidworks.jpg"
+    alt="Wing assembly in SolidWorks"
+    class="project-image">
+
+</section>
+
+
+<!-- 3. SpaceClaim -->
+
+<section>
+
+    <h2>3. Geometry Preparation in SpaceClaim</h2>
+
+    <p>
+        A wing is a thin-walled structure, so the geometry was idealized
+        by dimension to reduce the size of the model:
+    </p>
+
+    <ul>
+        <li>
+            <strong>Spars</strong>: converted into beams (line bodies)
+            with the <em>Extract</em> tool. A cross-section is assigned
+            to each beam.
+        </li>
+        <li>
+            <strong>Skin and ribs</strong>: converted into 2D surfaces
+            with the <em>Midsurface</em> tool. The thickness is kept as
+            a property of the surface.
+        </li>
+    </ul>
+
+    <p>
+        In Mechanical, this leads to beam elements for the spars and
+        shell elements for the skin and the ribs. Compared with a full
+        3D solid mesh, this gives a much smaller model and a faster
+        solution.
+    </p>
+
+    <img
+    src="images/wing_spaceclaim_extract.jpg"
+    alt="Spars converted to beams with Extract"
+    class="project-image">
+
+    <img
+    src="images/wing_spaceclaim_midsurface.jpg"
+    alt="Skin and ribs converted to surfaces with Midsurface"
+    class="project-image">
+
+    <h3>Share Topology</h3>
+
+    <p>
+        After the idealization, the beams and surfaces are still
+        separate bodies. In the Workbench tab of SpaceClaim, the
+        <em>Share</em> option makes neighbouring bodies use common edges
+        and vertices at their interfaces. The mesh nodes at the junctions
+        are then shared, so the parts behave as one continuous structure
+        and loads can pass through the joints.
+    </p>
+
+    <img
+    src="images/wing_spaceclaim_share.jpg"
+    alt="Share option in SpaceClaim"
+    class="project-image">
+
+</section>
+
+
+<!-- 4. Connections -->
+
+<section>
+
+    <h2>4. Connections in ANSYS Mechanical</h2>
+
+    <p>
+        Bonded contacts were added between the skin, the ribs and the
+        spars. A bonded contact glues two bodies together at their
+        interface: there is no sliding and no separation, as if the parts
+        were welded. It is a linear contact, so the analysis stays fast,
+        and forces and moments are transmitted across the joints.
+    </p>
+
+    <img
+    src="images/wing_connections.jpg"
+    alt="Bonded contacts in ANSYS Mechanical"
+    class="project-image">
+
+</section>
+
+
+<!-- 5. Mesh -->
+
+<section>
+
+    <h2>5. Mesh and Sizing</h2>
+
+    <p>
+        The mesh was generated in Mechanical. A sizing control was added
+        at the end to increase the element size and reduce the number of
+        elements.
+    </p>
+
+    <img
+    src="images/wing_mesh.jpg"
+    alt="Mesh of the wing"
+    class="project-image">
+
+</section>
+
+
+<!-- 6. Boundary conditions -->
+
+<section>
+
+    <h2>6. Boundary Conditions and Load</h2>
+
+    <ul>
+        <li>
+            <strong>Support</strong>: the end points of the beams are
+            fixed. This represents a clamped root of the wing.
+        </li>
+        <li>
+            <strong>Load</strong>: a 160 N force is applied on the
+            rightmost rib, in the direction of gravity.
+        </li>
+    </ul>
+
+    <p>
+        Since the support is applied only at the end points of the
+        beams, the stresses near these points are locally high and not
+        very accurate. This is a normal effect of point constraints and
+        is acceptable for this exercise.
+    </p>
+
+    <img
+    src="images/wing_boundary_conditions.jpg"
+    alt="Fixed supports and 160 N force on the wing"
+    class="project-image">
+
+</section>
+
+
+<!-- 7. Results -->
+
+<section>
+
+    <h2>7. Results</h2>
+
+    <h3>Total Deformation</h3>
+
+    <img
+    src="images/wing_deformation.jpg"
+    alt="Total deformation of the wing"
+    class="project-image">
+
+    <p>
+        <!-- Add your comment: maximum value and where it occurs -->
+    </p>
+
+    <h3>Equivalent (von Mises) Stress</h3>
+
+    <img
+    src="images/wing_von_mises.jpg"
+    alt="von Mises stress in the wing"
+    class="project-image">
+
+    <p>
+        <!-- Add your comment: maximum value and where it occurs -->
+    </p>
+
+</section>
+
+
+<!-- 8. Conclusion -->
+
+<section>
+
+    <h2>8. Conclusion</h2>
+
+    <p>
+        This exercise presented the main steps of a structural analysis
+        in ANSYS: idealization of the geometry in SpaceClaim, connection
+        of the parts, meshing, definition of the supports and the load,
+        and post-processing of the deformation and the von Mises stress.
+    </p>
+
+    <p>
+        <!-- Add your own conclusion: observations on the results -->
+    </p>
+
+    <a href="index.html" class="project-link">
+        Back to Projects
+    </a>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+
+
+<footer>
+
+<div class="container">
+
+<p>
+Created by Khaled Merouane Chennouf
+</p>
+
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
