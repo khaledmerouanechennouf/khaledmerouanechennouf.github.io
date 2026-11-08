@@ -8,6 +8,30 @@
     box-sizing: border-box;
 }
 
+/* =========================================================
+   LOOPING VIDEOS (GIF-LIKE)
+   ========================================================= */
+
+figure.loop-video {
+    margin: 25px auto;
+    max-width: 700px;
+    text-align: center;
+}
+
+figure.loop-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+figure.loop-video figcaption {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 8px;
+}
 
 /* =========================================================
    GENERAL PAGE STYLE
