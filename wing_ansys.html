@@ -25,6 +25,10 @@
             Structural Analysis of an Aircraft Wing in ANSYS
         </h1>
 
+        <p class="subtitle">
+            Beam and shell idealization in SpaceClaim, static analysis in ANSYS Mechanical
+        </p>
+
     </div>
 
 </header>
@@ -35,236 +39,268 @@
 
 <div class="container">
 
+    <div class="back-link">
+        <a href="index.html">&larr; Back to Projects</a>
+    </div>
 
-<!-- 1. Introduction -->
 
-<section>
+    <div class="detail">
 
-    <h2>1. Introduction and Objective</h2>
 
-    <p>
-        The aim of this tutorial is to explain the main steps to follow
-        to conduct a structural analysis in ANSYS. The study case is an
-        aircraft wing made of a skin, ribs and spars. The wing is clamped
-        at the spar end points and loaded with a 160 N force applied on
-        the rightmost rib, in the direction of gravity.
-    </p>
+        <!-- 1. Introduction -->
 
-    <img
-    src="images/wing_ansys_overview.webp"
-    alt="Overview of the wing structural analysis"
-    class="project-image">
+        <section>
 
-</section>
+            <h2>1. Introduction and Objective</h2>
 
+            <p>
+                The aim of this tutorial is to explain the main steps to follow
+                to conduct a structural analysis in ANSYS. The study case is an
+                aircraft wing made of a skin, ribs and spars. The wing is clamped
+                at the spar end points and loaded with a 160 N force applied on
+                the rightmost rib, in the direction of gravity.
+            </p>
 
-<!-- 2. Geometry -->
+            <img
+            src="images/wing_ansys_overview.webp"
+            alt="Overview of the wing structural analysis"
+            class="project-image">
 
-<section>
+        </section>
 
-    <h2>2. Geometry Assembly in SolidWorks</h2>
 
-    <p>
-        The wing was modeled and assembled in SolidWorks. The assembly
-        contains the wing skin, the ribs and the spars.
-    </p>
+        <!-- 2. Geometry -->
 
-    <img
-    src="images/wing_ansys.png"
-    alt="Wing assembly in SolidWorks"
-    class="project-image">
+        <section>
 
-</section>
+            <h2>2. Geometry Assembly in SolidWorks</h2>
 
+            <p>
+                The wing was modeled and assembled in SolidWorks. The assembly
+                contains the wing skin, the ribs and the spars.
+            </p>
 
-<!-- 3. SpaceClaim -->
+            <img
+            src="images/wing_solidworks.png"
+            alt="Wing assembly in SolidWorks"
+            class="project-image">
 
-<section>
+        </section>
 
-    <h2>3. Geometry Preparation in SpaceClaim</h2>
 
-    <p>
-        A wing is a thin-walled structure, so the geometry was idealized
-        by dimension to reduce the size of the model:
-    </p>
+        <!-- 3. SpaceClaim -->
 
-    <ul>
-        <li>
-            <strong>Spars</strong>: converted into beams (line bodies)
-            with the <em>Extract</em> tool. A cross-section is assigned
-            to each beam.
-        </li>
-        <li>
-            <strong>Skin and ribs</strong>: converted into 2D surfaces
-            with the <em>Midsurface</em> tool. The thickness is kept as
-            a property of the surface.
-        </li>
-    </ul>
+        <section>
 
-    <p>
-        In Mechanical, this leads to beam elements for the spars and
-        shell elements for the skin and the ribs. Compared with a full
-        3D solid mesh, this gives a much smaller model and a faster
-        solution.
-    </p>
+            <h2>3. Geometry Preparation in SpaceClaim</h2>
 
-    <img
-    src="images/wing_spaceclaim_extract.png"
-    alt="Spars converted to beams with Extract"
-    class="project-image">
+            <p>
+                A wing is a thin-walled structure, so the geometry was idealized
+                by dimension to reduce the size of the model:
+            </p>
 
-    <img
-    src="images/wing_spaceclaim_midsurface.png"
-    alt="Skin and ribs converted to surfaces with Midsurface"
-    class="project-image">
+            <ul>
+                <li>
+                    <strong>Spars</strong>: converted into beams (line bodies)
+                    with the <em>Extract</em> tool. A cross-section is assigned
+                    to each beam.
+                </li>
+                <li>
+                    <strong>Skin and ribs</strong>: converted into 2D surfaces
+                    with the <em>Midsurface</em> tool. The thickness is kept as
+                    a property of the surface.
+                </li>
+            </ul>
 
-    <h3>Share Topology</h3>
+            <p>
+                In Mechanical, this leads to beam elements for the spars and
+                shell elements for the skin and the ribs. Compared with a full
+                3D solid mesh, this gives a much smaller model and a faster
+                solution.
+            </p>
 
-    <p>
-        After the idealization, the beams and surfaces are still
-        separate bodies. In the Workbench tab of SpaceClaim, the
-        <em>Share</em> option makes neighbouring bodies use common edges
-        and vertices at their interfaces. The mesh nodes at the junctions
-        are then shared, so the parts behave as one continuous structure
-        and loads can pass through the joints.
-    </p>
+            <img
+            src="images/wing_spaceclaim_extract.png"
+            alt="Spars converted to beams with Extract"
+            class="project-image">
 
-    <img
-    src="images/wing_spaceclaim_share.png"
-    alt="Share option in SpaceClaim"
-    class="project-image">
+            <img
+            src="images/wing_spaceclaim_midsurface.png"
+            alt="Skin and ribs converted to surfaces with Midsurface"
+            class="project-image">
 
-</section>
+            <h3>Share Topology</h3>
 
+            <p>
+                After the idealization, the beams and surfaces are still
+                separate bodies. In the Workbench tab of SpaceClaim, the
+                <em>Share</em> option makes neighbouring bodies use common edges
+                and vertices at their interfaces. The mesh nodes at the junctions
+                are then shared, so the parts behave as one continuous structure
+                and loads can pass through the joints.
+            </p>
 
-<!-- 4. Connections -->
+            <img
+            src="images/wing_spaceclaim_share.png"
+            alt="Share option in SpaceClaim"
+            class="project-image">
 
-<section>
+        </section>
 
-    <h2>4. Connections in ANSYS Mechanical</h2>
 
-    <p>
-        Bonded contacts were added between the skin, the ribs and the
-        spars. A bonded contact glues two bodies together at their
-        interface: there is no sliding and no separation, as if the parts
-        were welded. It is a linear contact, so the analysis stays fast,
-        and forces and moments are transmitted across the joints.
-    </p>
+        <!-- 4. Connections -->
 
-    <img
-    src="images/wing_connections.jpg"
-    alt="Bonded contacts in ANSYS Mechanical"
-    class="project-image">
+        <section>
 
-</section>
+            <h2>4. Connections in ANSYS Mechanical</h2>
 
+            <p>
+                Bonded contacts were added between the skin, the ribs and the
+                spars. A bonded contact glues two bodies together at their
+                interface: there is no sliding and no separation, as if the parts
+                were welded. It is a linear contact, so the analysis stays fast,
+                and forces and moments are transmitted across the joints.
+            </p>
 
-<!-- 5. Mesh -->
+            <img
+            src="images/wing_connections1.png"
+            alt="Bonded contacts in ANSYS Mechanical"
+            class="project-image">
 
-<section>
+        </section>
 
-    <h2>5. Mesh and Sizing</h2>
 
-    <p>
-        The mesh was generated in Mechanical. A sizing control was added
-        at the end to increase the element size and reduce the number of
-        elements.
-    </p>
+        <!-- 5. Mesh -->
 
-    <img
-    src="images/wing_mesh.jpg"
-    alt="Mesh of the wing"
-    class="project-image">
+        <section>
 
-</section>
+            <h2>5. Mesh and Sizing</h2>
 
+            <p>
+                The mesh was generated in Mechanical. A sizing control was added
+                at the end to increase the element size and reduce the number of
+                elements.
+            </p>
 
-<!-- 6. Boundary conditions -->
+            <img
+            src="images/wing_mesh.png"
+            alt="Mesh of the wing"
+            class="project-image">
 
-<section>
+        </section>
 
-    <h2>6. Boundary Conditions and Load</h2>
 
-    <ul>
-        <li>
-            <strong>Support</strong>: the end points of the beams are
-            fixed. This represents a clamped root of the wing.
-        </li>
-        <li>
-            <strong>Load</strong>: a 160 N force is applied on the
-            rightmost rib, in the direction of gravity.
-        </li>
-    </ul>
+        <!-- 6. Boundary conditions -->
 
-    <p>
-        Since the support is applied only at the end points of the
-        beams, the stresses near these points are locally high and not
-        very accurate. This is a normal effect of point constraints and
-        is acceptable for this exercise.
-    </p>
+        <section>
 
-    <img
-    src="images/wing_boundary_conditions.jpg"
-    alt="Fixed supports and 160 N force on the wing"
-    class="project-image">
+            <h2>6. Boundary Conditions and Load</h2>
 
-</section>
+            <div class="features">
 
+                <div>
+                    <strong>Support</strong>: the end points of the beams are
+                    fixed, which represents a clamped root of the wing.
+                </div>
 
-<!-- 7. Results -->
+                <div>
+                    <strong>Load</strong>: a 160 N force is applied on the
+                    rightmost rib, in the direction of gravity.
+                </div>
 
-<section>
+            </div>
 
-    <h2>7. Results</h2>
+            <p>
+                Since the support is applied only at the end points of the
+                beams, the stresses near these points are locally high and not
+                very accurate. This is a normal effect of point constraints and
+                is acceptable for this exercise.
+            </p>
 
-    <h3>Total Deformation</h3>
 
-    <img
-    src="images/wing_deformation.jpg"
-    alt="Total deformation of the wing"
-    class="project-image">
+        </section>
 
-    <p>
-        <!-- Add your comment: maximum value and where it occurs -->
-    </p>
 
-    <h3>Equivalent (von Mises) Stress</h3>
+        <!-- 7. Results -->
 
-    <img
-    src="images/wing_von_mises.jpg"
-    alt="von Mises stress in the wing"
-    class="project-image">
+        <section>
 
-    <p>
-        <!-- Add your comment: maximum value and where it occurs -->
-    </p>
+            <h2>7. Results</h2>
 
-</section>
+            <table class="results-table">
 
+                <caption>Maximum values obtained</caption>
 
-<!-- 8. Conclusion -->
+                <thead>
+                    <tr>
+                        <th>Result</th>
+                        <th>Maximum value</th>
+                    </tr>
+                </thead>
 
-<section>
+                <tbody>
+                    <tr>
+                        <th>Total deformation</th>
+                        <td><!-- value and unit --></td>
+                    </tr>
+                    <tr>
+                        <th>Equivalent (von Mises) stress</th>
+                        <td><!-- value and unit --></td>
+                    </tr>
+                </tbody>
 
-    <h2>8. Conclusion</h2>
+            </table>
 
-    <p>
-        This exercise presented the main steps of a structural analysis
-        in ANSYS: idealization of the geometry in SpaceClaim, connection
-        of the parts, meshing, definition of the supports and the load,
-        and post-processing of the deformation and the von Mises stress.
-    </p>
+            <h3>Total Deformation</h3>
 
-    <p>
-        <!-- Add your own conclusion: observations on the results -->
-    </p>
+            <img
+            src="images/wing_deformation1.png"
+            alt="Total deformation of the wing"
+            class="project-image">
 
-    <a href="index.html" class="project-link">
-        Back to Projects
-    </a>
+            <p>
+                <!-- Comment: where the maximum deformation occurs -->
+            </p>
 
-</section>
+            <h3>Equivalent (von Mises) Stress</h3>
 
+            <img
+            src="images/wing_von_mises.png"
+            alt="von Mises stress in the wing"
+            class="project-image">
+
+            <p>
+                <!-- Comment: where the maximum stress occurs -->
+            </p>
+
+        </section>
+
+
+        <!-- 8. Conclusion -->
+
+        <section>
+
+            <h2>8. Conclusion</h2>
+
+            <p>
+                This exercise presented the main steps of a structural analysis
+                in ANSYS: idealization of the geometry in SpaceClaim, connection
+                of the parts, meshing, definition of the supports and the load,
+                and post-processing of the deformation and the von Mises stress.
+            </p>
+
+            <p>
+                <!-- Your own conclusion on the results -->
+            </p>
+
+            <a href="index.html" class="project-link">
+                &larr; Back to Projects
+            </a>
+
+        </section>
+
+
+    </div>
 
 </div>
 
