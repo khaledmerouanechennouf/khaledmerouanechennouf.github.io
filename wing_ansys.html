@@ -211,21 +211,37 @@
             <h2>5. Mesh and Sizing</h2>
 
             <p>
-                The mesh was generated in Mechanical. A sizing control was added
-                at the end to increase the element size and reduce the number of
-                elements.
+                The mesh was first generated automatically in Mechanical with the
+                default settings. A sizing control was then added to increase the
+                element size and reduce the number of elements, which lowers the
+                computation cost of the analysis.
             </p>
 
-            <figure>
-                <img
-                src="images/wing_mesh.png"
-                alt="Mesh of the wing"
-                class="project-image">
-                <figcaption>Figure 6: Mesh of the wing after the sizing control.</figcaption>
-            </figure>
+            <div class="image-row">
+
+                <figure>
+                    <img
+                    src="images/wing_mesh.png"
+                    alt="Automatically generated mesh of the wing"
+                    class="project-image">
+                    <figcaption>Figure 6a: Automatically generated mesh.</figcaption>
+                </figure>
+
+                <figure>
+                    <img
+                    src="images/wing_mesh2.png"
+                    alt="Mesh of the wing with sizing control"
+                    class="project-image">
+                    <figcaption>Figure 6b: Mesh with the sizing control.</figcaption>
+                </figure>
+
+            </div>
+
+            <p>
+                <!-- Optional: number of nodes and elements before and after the sizing -->
+            </p>
 
         </section>
-
 
         <!-- 6. Boundary conditions -->
 
