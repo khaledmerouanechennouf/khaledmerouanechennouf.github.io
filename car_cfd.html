@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> CFD Simulation of the Flow Over the Ahmed Body in ANSYS Fluent | Khaled Merouane Chennouf </title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="container">
+
+        <h1>
+            CFD Simulation of the Flow Over the Ahmed Body in ANSYS Fluent
+        </h1>
+
+        <p class="subtitle">
+            Meshing in Fluent Meshing, turbulent flow simulation with k-omega GEKO
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+<div class="container">
+
+    <div class="back-link">
+        <a href="index.html">&larr; Back to Projects</a>
+    </div>
+
+
+    <div class="detail">
+
+
+        <!-- 1. Introduction -->
+
+        <section>
+
+            <h2>1. Introduction and Objective</h2>
+
+            <p>
+                The aim of this project is to simulate the turbulent flow around
+                the Ahmed body, a standard benchmark in vehicle aerodynamics,
+                using ANSYS Fluent. The flow is simulated at 40 m/s in a 3D domain
+                with a symmetry plane. The objective is to analyze the pressure
+                distribution, the velocity field and the wake structure behind the
+                body, to compute the drag coefficient and to check the near-wall
+                mesh quality with the y+ distribution.
+            </p>
+
+            <figure>
+                <img
+                src="images/car_cfd_overview.png"
+                alt="Overview of the CFD simulation of the Ahmed body"
+                class="project-image">
+                <figcaption>Figure 1: Overview of the simulation.</figcaption>
+            </figure>
+
+        </section>
+
+
+        <!-- 2. Geometry -->
+
+        <section>
+
+            <h2>2. Geometry and Fluid Domain</h2>
+
+            <p>
+                The study uses the Ahmed body, a simplified car shape widely used
+                to study the wake and the drag of road vehicles.
+                <!-- Add: slant angle (25 or 35 degrees) and body dimensions -->
+                Only half of the body is modeled, and a symmetry plane is used
+                to represent the other half, which reduces the size of the mesh
+                and the computation time.
+            </p>
+
+            <p>
+                The fluid domain around the body has the following dimensions:
+            </p>
+
+            <div class="features">
+
+                <div><strong>Upstream</strong> of the body: 2.6 m</div>
+                <div><strong>Downstream</strong> of the body: 5.22 m</div>
+                <div><strong>Side</strong> of the body: 5.22 m</div>
+                <div><strong>Above</strong> the body: 5.22 m</div>
+
+            </div>
+
+            <div class="image-row">
+
+                <figure>
+                    <img
+                    src="images/car_cfd_geometry.png"
+                    alt="Ahmed body geometry"
+                    class="project-image">
+                    <figcaption>Figure 2a: Ahmed body geometry.</figcaption>
+                </figure>
+
+                <figure>
+                    <img
+                    src="images/car_cfd_domain.png"
+                    alt="Fluid domain around the Ahmed body"
+                    class="project-image">
+                    <figcaption>Figure 2b: Fluid domain around the body.</figcaption>
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- 3. Meshing -->
+
+        <section>
+
+            <h2>3. Meshing in Fluent Meshing</h2>
+
+            <p>
+                The geometry was imported in Fluent Meshing. A local sizing was
+                applied on the wall of the body to refine the mesh where the
+                flow is most sensitive. The surface mesh was generated first,
+                followed by the volume mesh.
+            </p>
+
+            <!-- Add later: workflow used, mesh type (poly-hexcore, polyhedra, tetrahedral),
+                 boundary layers (number of layers, first height, growth rate),
+                 body of influence in the wake, final number of cells -->
+
+            <div class="image-row">
+
+                <figure>
+                    <img
+                    src="images/car_cfd_surface_mesh.png"
+                    alt="Surface mesh of the Ahmed body"
+                    class="project-image">
+                    <figcaption>Figure 3a: Surface mesh on the body.</figcaption>
+                </figure>
+
+                <figure>
+                    <img
+                    src="images/car_cfd_volume_mesh.png"
+                    alt="Volume mesh around the Ahmed body"
+                    class="project-image">
+                    <figcaption>Figure 3b: Volume mesh around the body.</figcaption>
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- 4. Fluent setup -->
+
+        <section>
+
+            <h2>4. Setup in ANSYS Fluent</h2>
+
+            <h3>Turbulence Model and Fluid</h3>
+
+            <p>
+                The turbulence is modeled with the k-omega GEKO model, with
+                its default parameters. The fluid is air with the following
+                properties:
+            </p>
+
+            <div class="features">
+
+                <div><strong>Density</strong>: 1.193 kg/m³</div>
+                <div><strong>Dynamic viscosity</strong>: 1.7894 × 10⁻⁵ Pa·s</div>
+
+            </div>
+
+            <h3>Boundary Conditions</h3>
+
+            <table class="results-table">
+
+                <caption>Boundary conditions</caption>
+
+                <thead>
+                    <tr>
+                        <th>Boundary</th>
+                        <th>Condition</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th>Inlet (front, top and side)</th>
+                        <td>Velocity inlet, 40 m/s along the flow direction (x)</td>
+                    </tr>
+                    <tr>
+                        <th>Outlet</th>
+                        <td>Pressure outlet</td>
+                    </tr>
+                    <tr>
+                        <th>Ground</th>
+                        <td>Wall</td>
+                    </tr>
+                    <tr>
+                        <th>Body</th>
+                        <td>Wall</td>
+                    </tr>
+                    <tr>
+                        <th>Symmetry plane</th>
+                        <td>Symmetry</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <h3>Solution and Initialization</h3>
+
+            <p>
+                The residual convergence criterion was set to 10⁻³. The solution
+                was first initialized with the standard initialization. The
+                command <code>solve/initialize/fmg -y</code> was then used in the
+                Fluent console to obtain a better initial solution before running
+                the calculation.
+            </p>
+
+        </section>
+
+
+        <!-- 5. Convergence -->
+
+        <section>
+
+            <h2>5. Convergence</h2>
+
+            <p>
+                <!-- Describe: number of iterations, residuals, drag coefficient monitor -->
+            </p>
+
+            <div class="image-row">
+
+                <figure>
+                    <img
+                    src="images/car_cfd_residuals.png"
+                    alt="Residuals of the calculation"
+                    class="project-image">
+                    <figcaption>Figure 4a: Residuals.</figcaption>
+                </figure>
+
+                <figure>
+                    <img
+                    src="images/car_cfd_cd_monitor.png"
+                    alt="Drag coefficient monitor"
+                    class="project-image">
+                    <figcaption>Figure 4b: Drag coefficient monitor.</figcaption>
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- 6. Results -->
+
+        <section>
+
+            <h2>6. Results</h2>
+
+            <h3>Drag Coefficient</h3>
+
+            <table class="results-table">
+
+                <caption>Drag coefficient</caption>
+
+                <thead>
+                    <tr>
+                        <th>Quantity</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th>Drag coefficient (Cd)</th>
+                        <td><!-- value --></td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <h3>Pressure and Velocity Fields</h3>
+
+            <div class="image-row">
+
+                <figure>
+                    <img
+                    src="images/car_cfd_pressure.png"
+                    alt="Pressure contours on the Ahmed body"
+                    class="project-image">
+                    <figcaption>Figure 5a: Pressure contours.</figcaption>
+                </figure>
+
+                <figure>
+                    <img
+                    src="images/car_cfd_velocity.png"
+                    alt="Velocity contours around the Ahmed body"
+                    class="project-image">
+                    <figcaption>Figure 5b: Velocity contours.</figcaption>
+                </figure>
+
+            </div>
+
+            <p>
+                <!-- Comment: high pressure at the front, low pressure zones, acceleration of the flow -->
+            </p>
+
+            <h3>Streamlines and Wake Region</h3>
+
+            <figure>
+                <img
+                src="images/car_cfd_streamlines.png"
+                alt="Streamlines and wake behind the Ahmed body"
+                class="project-image">
+                <figcaption>Figure 6: Streamlines and wake region behind the body.</figcaption>
+            </figure>
+
+            <p>
+                <!-- Comment: separation, recirculation zone in the wake -->
+            </p>
+
+        </section>
+
+
+        <!-- 7. Mesh quality -->
+
+        <section>
+
+            <h2>7. Mesh Quality: y+ Distribution</h2>
+
+            <p>
+                <!-- Explain: y+ measures the distance of the first cell from the wall in wall units.
+                     Add the range obtained and comment on it -->
+            </p>
+
+            <figure>
+                <img
+                src="images/car_cfd_yplus.png"
+                alt="y+ distribution on the Ahmed body"
+                class="project-image">
+                <figcaption>Figure 7: y+ distribution on the body wall.</figcaption>
+            </figure>
+
+        </section>
+
+
+        <!-- 8. Conclusion -->
+
+        <section>
+
+            <h2>8. Conclusion and Limitations</h2>
+
+            <p>
+                This project presented the main steps of a CFD simulation of an
+                external flow: definition of the fluid domain, meshing in Fluent
+                Meshing, setup in ANSYS Fluent, and post-processing of the
+                pressure and velocity fields, the wake and the drag coefficient.
+            </p>
+
+            <p>
+                The study has some limitations: a single mesh was used (no mesh
+                convergence study), the residual criterion was set to 10⁻³, and
+                no comparison with experimental data has been made yet.
+                These points are planned improvements.
+            </p>
+
+            <a href="index.html" class="project-link">
+                &larr; Back to Projects
+            </a>
+
+        </section>
+
+
+    </div>
+
+</div>
+
+</main>
+
+
+
+
+<footer>
+
+<div class="container">
+
+<p>
+Created by Khaled Merouane Chennouf
+</p>
+
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
